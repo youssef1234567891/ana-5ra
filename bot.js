@@ -18,7 +18,7 @@ member.send( `${member} ! ` + "**" + message.guild.name + " : ** " + message.con
 client.on("message", message => {
     var prefix = ".";
  
-            var args = message.content.substring(prefix.length).split(".");
+            var args = message.content.substring(prefix.length).split(".bc ");
             if (message.content.startsWith(prefix + "m")) {
                          if (!message.member.hasPermission("CONNECT"))  return;
                             let embed4 = new Discord.RichEmbed()
