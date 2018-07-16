@@ -1,45 +1,18 @@
-const Discord = require("discord.js");
-const client = new Discord.Client();
-client.on('ready', () => {
-  console.log(`Hixxx online`);
+var prefix = ".";
 
-});
-//Hixx
-client.on('message', message => {
-if (message.content.split(' ')[0] == '-m')
- message.guild.members.forEach( member => {
-         if (!message.member.hasPermission("CONNECT"))  return;
-member.send( `${member} ! ` + "**" + message.guild.name + " : ** " + message.content.substr(3));
-                                                            message.delete();
-});
-});
-
-//جميع الحقوق محفوظه لهيكس وخبز
 client.on("message", message => {
-    var prefix = ".";
- 
-            var args = message.content.substring(prefix.length).split(".");
-            if (message.content.startsWith(prefix + "bc")) {
-                         if (!message.member.hasPermission("CONNECT"))  return;
-                            let embed4 = new Discord.RichEmbed()
-             .setDescription("**:white_check_mark: | جاري ارسال البرودكاست**")
-           .addField("مرسل البرودكاست" , message.author)
-          .addField("نص البرودكاست" ,args.join("  "))
-                            .addField("عدد الاعضاء المرسل لهم :busts_in_silhouette:" ,` **[${message.guild.memberCount}]**`,true)
-                                                            .setColor("#008000")
-                                message.channel.sendEmbed(embed4);
-                                                      message.delete();
-                            
-                          }
-});client.on('guildMemberAdd', member=> {
-    member.addRole(member.guild.roles.find("name","members"));
-    });
-client.on('ready', () => {
-    console.log(`~~~~~~~~~~~~~~~~~`);
-    console.log(`Logging into Discord`);
-    console.log(`~~~~~~~~~~~~~~~~~~~~~`);
-    console.log(`on  ${client.guilds.size} Servers `);
-    console.log(`~~~~~~~~~~~~~~~~~~~~~~~~`);
+
+            if (message.content.startsWith(prefix + "obc")) {
+                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+  let args = message.content.split(" ").slice(1);
+  var argresult = args.join(' '); 
+  message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
+ m.send(`${argresult}\n ${m}`);
+})
+ message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`); 
+ message.delete(); 
+};     
+});
     console.log(`Logged in as ${client.user.tag}!`);
     client.user.setGame(`هيتهات النوب`,"http://twitch.tv/y04zgamer")
     client.user.setStatus("dnd")
