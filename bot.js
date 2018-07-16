@@ -1104,4 +1104,4 @@ client.user.setGame(`Nothing`,"http://twitch.tv/S-F")
   }
 }
 
-client.login(process.env.BOT_TOKEN);
+client.login(process.env.NDY4MzQwOTc4ODQ0MDQxMjE3.Di3wGg.jmdIAx2znpWVnooewYZhxp6nrtI);
