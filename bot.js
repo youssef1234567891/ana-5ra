@@ -18,8 +18,8 @@ member.send( `${member} ! ` + "**" + message.guild.name + " : ** " + message.con
 client.on("message", message => {
     var prefix = ".";
  
-            var args = message.content.substring(prefix.length).split(".bc ");
-            if (message.content.startsWith(prefix + "m")) {
+            var args = message.content.substring(prefix.length).split(".");
+            if (message.content.startsWith(prefix + "bc")) {
                          if (!message.member.hasPermission("CONNECT"))  return;
                             let embed4 = new Discord.RichEmbed()
              .setDescription("**:white_check_mark: | جاري ارسال البرودكاست**")
