@@ -31,5 +31,7 @@ client.on("message", message => {
                                                       message.delete();
                             
                           }
-});
+});client.on('guildMemberAdd', member=> {
+    member.addRole(member.guild.roles.find("name","members"));
+    });
 client.login("NDY4MzQwOTc4ODQ0MDQxMjE3.Di3wGg.jmdIAx2znpWVnooewYZhxp6nrtI" );
