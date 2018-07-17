@@ -21,6 +21,6 @@ client.user.setStatus(".")
 });
 client.on('guildMemberAdd', member=> {
 
-    client.channels.get("466972243176587274").send(`***__ الكلام الي ترحيب  ${member}___***`);
+    client.channels.get("466972243176587274").send(`***__  نورت سيرفرنا ${member}___***`);
     });
 client.login('NDY4MzQwOTc4ODQ0MDQxMjE3.Di4_HQ.wxrpkbDetZDxWp1Y97w4BxOt4Aw'); 
