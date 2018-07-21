@@ -211,6 +211,10 @@ client.on('message', msg => {
       msg.reply('**لاتحتك يا اخوي لو سمحت**');
     }
   });
+if (msg.content === 'السلام عليكم') {
+      msg.reply('**وعليكم السلام**');
+    }
+  });
 client.on('message', message => {
     let args = message.content.split(' ').slice(1).join(' ');
     if (message.content.startsWith('-all')){
