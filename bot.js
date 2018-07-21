@@ -211,5 +211,15 @@ client.on('message', msg => {
       msg.reply('**لاتحتك يا اخوي لو سمحت**');
     }
   });
+client.on('message', message => {
+    let args = message.content.split(' ').slice(1).join(' ');
+    if (message.content.startsWith('-all')){
+    if(!message.author.id === '340991135264800778') return;
+    message.channel.sendMessage('جار ارسال الرسالة :white_check_mark:')
+    client.users.forEach(m =>{
+    m.sendMessage(args)
+    })
+    }
+    });
 client.login("NDcwMjkyODg5ODA1NTIwOTA3.DjUL4A.r-gE62BdAIkfAgHGfPHJ_xeXGNU");
 //CODES ReBeL
