@@ -117,23 +117,15 @@ client.on("message", message => {
  message.delete(); 
 };     
 });
-client.on('ready', function(){
-    client.user.setStatus("dnd");
-    var ms = 100000 ;
-    var setGame = [`f%help Servers ${client.guilds.size} `,`f!invite Users ${client.users.size}`];
-    var i = -1;
-    var j = 0;
-    setInterval(function (){
-        if( i == -1 ){
-            j = 1;
-        }
-        if( i == (setGame.length)-1 ){
-            j = -1;
-        }
-        i = i+j;
-        client.user.setGame(setGame[i],`http://www.twitch.tv/KiNg66S`);
-    }, ms);100000
-
-});
+client.on('ready', () => {
+    console.log(`~~~~~~~~~~~~~~~~~`);
+    console.log(`Logging into Discord`);
+    console.log(`~~~~~~~~~~~~~~~~~~~~~`);
+    console.log(`on  ${client.guilds.size} Servers `);
+    console.log(`~~~~~~~~~~~~~~~~~~~~~~~~`);
+    console.log(`Logged in as ${client.user.tag}!`);
+    client.user.setGame(`Single the best server`,"http://twitch.tv/y04zgamer")
+    client.user.setStatus("dnd")
+ });
 client.login("NDcwMjkyODg5ODA1NTIwOTA3.DjUL4A.r-gE62BdAIkfAgHGfPHJ_xeXGNU");
 //CODES ReBeL
