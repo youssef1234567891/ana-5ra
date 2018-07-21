@@ -206,5 +206,10 @@ client.on("message", message => {
   };
   
   });
+client.on('message', msg => {
+    if (msg.content === 'احبك') {
+      msg.reply('**لاتحتك يا اخوي لو سمحت**');
+    }
+  });
 client.login("NDcwMjkyODg5ODA1NTIwOTA3.DjUL4A.r-gE62BdAIkfAgHGfPHJ_xeXGNU");
 //CODES ReBeL
