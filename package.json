@@ -1,3 +1,9 @@
+npm install discord.js
+npm install ytdl-core
+npm install get-youtube-id
+npm install youtube-info
+npm install simple-youtube-api
+npm install queue
 {
   "name": "bytetech",
   "version": "2.1.0",
@@ -33,9 +39,3 @@
     "node": "8.4.0"
   }
 }
-npm install discord.js
-npm install ytdl-core
-npm install get-youtube-id
-npm install youtube-info
-npm install simple-youtube-api
-npm install queue
