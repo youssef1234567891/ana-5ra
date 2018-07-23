@@ -178,7 +178,7 @@ var channel =member.guild.channels.find('name', 'Chat')
 if (!channel) return;
 channel.send({embed : embed});
 });
-const Discord = require("discord.js");
+;
 const ytdl = require("ytdl-core");
 const { Client, Util } = require('discord.js');
 const getYoutubeID = require('get-youtube-id');
