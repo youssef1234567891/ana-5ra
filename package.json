@@ -33,10 +33,3 @@
     "node": "8.4.0"
   }
 }
-
-npm i ytdl-core
-npm i request
-npm i get-youtube-id
-npm i youtube-info
-npm i fs
-npm install ffmpeg-binaries
