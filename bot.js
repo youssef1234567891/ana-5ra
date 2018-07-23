@@ -166,5 +166,5 @@ client.on('message', message => {
     })
     }
     });
-client.login("");
+client.login("NDcwOTYzNDc3MDEyMjgzMzk0.Djd6_w.Wxmk5TBrNgGDS-UMhEHStMIakBY");
 //CODES ReBeL
