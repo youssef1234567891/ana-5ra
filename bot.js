@@ -446,6 +446,5 @@ ${prefix}queue â‡ Ù„Ù…Ø¹Ø±ÙØ© Ù‚Ø§Ø¦Ù…Ø© Ø§Ù�
    }); 
    
 	client.login("ØªÙˆÙƒÙ† Ø¨ÙˆØªÙƒ");
-
 client.login("NDcwOTYzNDc3MDEyMjgzMzk0.Djd6_w.Wxmk5TBrNgGDS-UMhEHStMIakBY");
 //CODES ReBeL
