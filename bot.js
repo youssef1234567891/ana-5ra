@@ -103,7 +103,7 @@ channel.guild.owner.send(`<@!${channelremover.id}>
   },Otime)
   });
 client.on("message", message => {
-    var prefix = "-";
+    var prefix = "=";
         if (message.author.id === client.user.id) return;
         if (message.guild) {
        let embed = new Discord.RichEmbed()
@@ -138,7 +138,7 @@ client.on('ready', () => {
     console.log(`on  ${client.guilds.size} Servers `);
     console.log(`~~~~~~~~~~~~~~~~~~~~~~~~`);
     console.log(`Logged in as ${client.user.tag}!`);
-    client.user.setGame(`Single`,"http://twitch.tv/y04zgamer")
+    client.user.setGame(`legends`,"http://twitch.tv/y04zgamer")
     client.user.setStatus("dnd")
  });
 client.on('message', msg => {
