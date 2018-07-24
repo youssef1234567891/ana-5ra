@@ -188,5 +188,10 @@ client.on('guildMemberAdd', member => {
    
       channel.sendEmbed(embed);
     });
+client.on('message', msg => {
+if (msg.content === 'بفجرابوك') {
+      msg.reply('**كل زق**');
+    }
+  });
 client.login("NDcwOTYzNDc3MDEyMjgzMzk0.Djd6_w.Wxmk5TBrNgGDS-UMhEHStMIakBY");
 //CODES ReBeL
