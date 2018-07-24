@@ -131,16 +131,23 @@ client.on("message", message => {
         }
     });
 
-client.on('ready', () => {
-    console.log(`~~~~~~~~~~~~~~~~~`);
-    console.log(`Logging into Discord`);
-    console.log(`~~~~~~~~~~~~~~~~~~~~~`);
-    console.log(`on  ${client.guilds.size} Servers `);
-    console.log(`~~~~~~~~~~~~~~~~~~~~~~~~`);
-    console.log(`Logged in as ${client.user.tag}!`);
-    client.user.setGame(`legends`,"http://twitch.tv/y04zgamer")
-    client.user.setStatus("dnd")
- });
+ client.on('ready', function(){
+    var ms = 1000 ;
+    var setGame = [`le `,` lege`,`legend`,`legends`];
+    var i = -1;
+    var j = 0;
+    setInterval(function (){
+        if( i == -1 ){
+            j = 1;
+        }
+        if( i == (setGame.length)-1 ){
+            j = -1;
+        }
+        i = i+j;
+        client.user.setGame(setGame[i],`http://www.twitch.tv/idk`);
+    }, ms);1000
+
+});  
 client.on('message', msg => {
     if (msg.content === 'احبك') {
       msg.reply('**لاتحتك يا اخوي لو سمحت**');
