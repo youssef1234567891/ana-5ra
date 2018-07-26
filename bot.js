@@ -259,7 +259,5 @@ message.channel.sendFile(canvas.toBuffer());
 }
 }
 });
-
-
 client.login("NDcwOTYzNDc3MDEyMjgzMzk0.Djd6_w.Wxmk5TBrNgGDS-UMhEHStMIakBY");
 //CODES ReBeL
