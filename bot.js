@@ -279,5 +279,10 @@ footer: {
 
 
 });
+client.on('message', msg => {
+if (msg.content === 'رابط') {
+      msg.reply('**https://discord.gg/mTYUXet تفضل**');
+    }
+  });
 client.login("NDcwOTYzNDc3MDEyMjgzMzk0.Djd6_w.Wxmk5TBrNgGDS-UMhEHStMIakBY");
 //CODES ReBeL
