@@ -123,7 +123,7 @@ client.on('message', function(message) {
     const embed500 = new Discord.RichEmbed()
       .setTitle(":x: | تمت معاقبتك")
             .addField(`** مش علينا يحبي **`)
-      .addField(`by`,`shyboy_05`)
+      .addField(`by`,`◕‿‿◕`)
             .setColor("c91616")
             .setThumbnail(`${message.author.avatarURL}`)
             .setAuthor(message.author.username, message.author.avatarURL) 
@@ -134,5 +134,9 @@ client.on('message', function(message) {
     }
     }
 })
+client.on('ready', () => {
+    console.log(`Logged in as ${client.user.tag} !`);
+    client.user.setGame(`Orall`,`www.twitch.tv/v5bz`);
+  });
 client.login("NDgwNTA3NjI2MzMzOTI5NDg0.Dlo33Q.MF2l0PMnvBePxSecbggTsTz9d2M");
 //CODES ReBeL
