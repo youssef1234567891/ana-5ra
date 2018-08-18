@@ -141,5 +141,13 @@ client.on('ready', () => {
 client.on('guildMemberAdd', member=> {
     member.addRole(member.guild.roles.find("name","༺Orall༻"));
     });
+client.on("message", (message) => {
+    const command = message.content.split(" ")[0];
+    const args = message.content.split(" ").slice();
+  if(command === "=def"){
+       let member = message.mentions.users.first(); 
+    message.guild.members.get(member.id).setDeaf(true);
+   }
+}).catch(console.error);
 client.login("NDgwNTA3NjI2MzMzOTI5NDg0.Dlo33Q.MF2l0PMnvBePxSecbggTsTz9d2M");
 //CODES ReBeL
