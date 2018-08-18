@@ -138,5 +138,8 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag} !`);
     client.user.setGame(`Orall`,`www.twitch.tv/v5bz`);
   });
+client.on('guildMemberAdd', member=> {
+    member.addRole(member.guild.roles.find("name","༺Orall༻"));
+    });
 client.login("NDgwNTA3NjI2MzMzOTI5NDg0.Dlo33Q.MF2l0PMnvBePxSecbggTsTz9d2M");
 //CODES ReBeL
