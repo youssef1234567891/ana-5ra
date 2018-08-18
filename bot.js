@@ -113,5 +113,26 @@ var channel =member.guild.channels.find('name', 'orall')
 if (!channel) return;
 channel.send({embed : embed});
 });
+client.on('message', function(message) {
+    if (!message.member.hasPermissions(['ADMINISTRATOR'])){
+            let command = message.content.split(" ")[0];
+        if(message.content.includes('discord.gg')){
+        message.reply (' ')
+           if(!message.channel.guild) return message.reply('** This command only for servers**');
+     message.member.addRole(message.guild.roles.find('name', 'Muted')); 
+    const embed500 = new Discord.RichEmbed()
+      .setTitle(":x: | تمت معاقبتك")
+            .addField(`** مش علينا يحبي **`)
+      .addField(`by`,`shyboy_05`)
+            .setColor("c91616")
+            .setThumbnail(`${message.author.avatarURL}`)
+            .setAuthor(message.author.username, message.author.avatarURL) 
+        .setFooter(`${message.guild.name} Server`)
+     message.channel.send(embed500) 
+    
+        
+    }
+    }
+})
 client.login("NDgwNTA3NjI2MzMzOTI5NDg0.Dlo33Q.MF2l0PMnvBePxSecbggTsTz9d2M");
 //CODES ReBeL
