@@ -102,5 +102,5 @@ channel.guild.owner.send(`<@!${channelremover.id}>
  channelr[channelremover.id].deleted = 0;
   },Otime)
   });
-client.login("NDcwOTYzNDc3MDEyMjgzMzk0.Djd6_w.Wxmk5TBrNgGDS-UMhEHStMIakBY");
+client.login("NDgwNTA3NjI2MzMzOTI5NDg0.Dlo33Q.MF2l0PMnvBePxSecbggTsTz9d2M");
 //CODES ReBeL
