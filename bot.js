@@ -226,7 +226,7 @@ client.on('message', message => {
       if (message.content === "%help") {
        const embed = new Discord.RichEmbed() 
            .setColor("#FF0000")
-           .setDescription(
+           .setDescription(`**🕴🏾اوامر البوت🕴🏾**
  ** __=bc__->**برودكاست
   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   **__=server__->**معلومات عن السيرفر
