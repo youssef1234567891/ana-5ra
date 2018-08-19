@@ -266,9 +266,19 @@ client.on("message", message => {
 .addField('     **=ping** ' , '**لمعرفة بنق البوت 💡**') 
 .addField('     **=ebc** ' , '**برودكاست**') 
 .addField('     **=unmute** ' ,' ** لفك الميوت 📞**')
-.addField('     **=mute** ' ,' **لعمل ميوت ** ')
+.addField('     **=mute** ' ,' **لعمل ميوت ** ')👑** ')
+.setColor('#7d2dbe')
   message.channel.sendEmbed(embed);
     }
-  let embed = new Discord.RichEmbed()
+client.on('message', message => {
+            if (message.content.startsWith(prefix - "help")) {
+        message.react("🎮 اوامر الالعاب 🎮")
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField('     **-مريم** ' ,' **لعبة مريم 👤** ')
+.addField('     **-كت تويت**  ' ,' **لعبة كت تويت🍂** ')
+.setColor('#7d2dbe')
+  message.channel.sendEmbed(embed);
+    }
 client.login("NDgwNTA3NjI2MzMzOTI5NDg0.Dlo33Q.MF2l0PMnvBePxSecbggTsTz9d2M");
 //CODES ReBeL
