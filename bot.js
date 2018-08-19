@@ -210,46 +210,6 @@ client.on("message", message => {
         }
     });
 client.on('message', message => {
-    if (message.content === "=help") {
-    let embed = new Discord.RichEmbed()
-  .setAuthor(message.author.username)
-  .setFooter(`© SHYBOY_05 ™.`, 'https://images-ext-2.discordapp.net/external/X9SanEG0s7Dtv3krTgy-kod_fj6JRVJ2AG4JryCiiz0/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/375761288518828042/fffa31c797e88cf059dd6db424ff456a.png?width=80&height=80')
-  .setColor("#000000")
-  .addField("Done | تــــم" , ":envelope: | :sleuth_or_spy::skin-tone-3:شيك علي في الخاص")
-  
-  
-  
-  message.channel.sendEmbed(embed);
-  }
-  });
- client.on("message", message => {
-      if (message.content === "%help") {
-       const embed = new Discord.RichEmbed() 
-           .setColor("#FF0000")
-           .setDescription(`**🕴🏾اوامر البوت🕴🏾**
-  **__=server__->**معلومات عن السيرفر
-  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-  **__=Bot__->**معلومات عن البوت
-  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-  **__=member__->**حالة اعضاء السيرفر
-  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-  **__=ping__->**سرعة اتصال البوت
-  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-  **__=kick__->**لطرد شخص من السيرفر
-  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-   **__=ban__->**لحظر عضو من السيرفر 
-  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-  **__=mute__->**لعمل ميوت لشخص
-  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-  **__=unmute__->**لفك الميوت عن شخص
-  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-  **__=stats__->**معلومات خفيفه عن البوت
-  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-     message.author.sendEmbed(embed)
-     
-     }
-     });
-client.on('message', message => {
     if(!message.channel.guild) return;
 if (message.content.startsWith('=ping')) {
 if(!message.channel.guild) return;
@@ -297,5 +257,181 @@ client.on("message", message => {
   };
   
   });
+const Discord = require('discord.js');
+const client = new Discord.Client();
+var prefix = "=" ;   // البرفكس هنااااااااااااااااااااااااااااااااااااااااااااااااااااااااااااا
+
+/**
+* @description (C) Onixes.#9120
+* * code by Damit..
+* @description https://discord.gg/2s7keqh
+* * * (C) codes. - 2018 
+*/
+
+
+var requestHelp = async function(type, user, message) {
+    switch(type) {
+        case "games":
+            var gamesHelp = await new Discord.RichEmbed()
+            // .addField("معلومات عن الكومند مثلا اكتب اسم العاصمة" ," اسم الكومند مثلا عواصم ")
+                .addField("test", "games")
+                .addField("test", "games")
+            user.send(gamesHelp);
+        break;
+        case "general":
+            var generalHelp = await new Discord.RichEmbed()
+            // .addField("معلومات عن الامر", "الامر ")
+                .addField("test", "general")
+                .addField("test", "general")
+            user.send(generalHelp);
+        break;
+        case "admin":
+        if(message.member.hasPermission("ADMINISTRATOR")) {
+            var adminHelp = await new Discord.RichEmbed()
+                .addField("test", "admin")
+                .addField("test", "admin")
+            user.send(adminHelp); 
+        } else {
+            return;
+        }
+        break;
+    }
+}
+
+
+
+
+
+
+var reactForGamesHelp = {
+    messageId: null,
+    reaction: null
+}, 
+reactForGeneralHelp = {
+    messageId: null,
+    reaction: null
+}, 
+reactForAdminHelp = {
+    messageId: null,
+    reaction: null
+};
+
+
+                                                                                // (C) codes. offical server
+
+function define(identify) {
+    var data = {}
+    data["user"] = client.users.find("id", identify.user_id)
+    data["channel"] = client.channels.find("id", identify.channel_id);
+    data["emoji"] = identify.emoji.id ? `${identify.emoji.name}:${identify.emoji.id}` : identify.emoji.name;
+    data["member"] = data["channel"].guild.members.find("id", identify.user_id)
+    data["message"] = data["channel"].messages.find("id", identify.message_id);
+    data["reaction"] = data["message"].reactions.get(data.emoji)
+    return data;
+}
+
+
+client.on('raw',  packet  => {
+    if(packet.t == "MESSAGE_REACTION_ADD") {
+        var data = define(packet.d)
+        if(data.user.id == client.user.id) return;
+            switch (packet.d.message_id) {
+            case reactForGamesHelp.messageId:
+                if(reactForGamesHelp.reaction === data.emoji) {
+                    requestHelp("games", data.member, data.message)
+                    data.reaction.remove(data.member)
+                } else {
+                    data.reaction.remove(data.member)
+                }
+                break;
+
+            case reactForGeneralHelp.messageId:
+                if(reactForGeneralHelp.reaction === data.emoji) {
+                    requestHelp("general", data.member, data.message)
+                    data.reaction.remove(data.member)
+                } else {
+                    data.reaction.remove(data.member)
+                }
+                break;
+
+
+            case reactForAdminHelp.messageId:
+                if(reactForAdminHelp.reaction === data.emoji) {
+                    requestHelp("admin", data.member, data.message)
+                    data.reaction.remove(data.member)
+                } else {
+                    data.reaction.remove(data.member)
+                }
+                break;
+        }
+    }
+});
+
+
+
+
+
+
+client.on("message", message => {
+    if(message.content.indexOf(prefix) !== 0) return;
+    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    if(message.content == prefix + `set ${args[1]} help`) {
+        if(args[1] == "games" || args[1] == "general" || args[1] == "admin") {
+            var  filter = m => m.author.id === message.author.id
+            message.channel.send("give me the channel id now !");        
+            message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
+            .then(collected => {
+                var toSetChannel = collected.first();
+                var channel = message.guild.channels.find("id", toSetChannel.content);
+                if(channel) {
+                    message.channel.send("give me the message id now !")
+                    var  filter = m => m.author.id === message.author.id
+                    message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
+                    .then(collected => {
+                        var ToSetMessage = collected.first();
+                        channel.fetchMessages().then(messages => {
+                            var defined =  messages.filter(message => message.id == ToSetMessage.content);
+                            var msg = defined.first()
+                            if(defined) {
+                                message.channel.send("send the emoji now!")
+                                message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
+                                .then(collected => {
+                                    msg.react(collected.first().content)
+                                    var rect = collected.first().content
+                                    setReactionData(channel, msg, rect, args[1])
+                                })
+                            } 
+                        })
+                        .catch(console.error)
+                    });
+                } else {
+                    message.channel.send("sorry i can't find this channel")
+                }
+            })
+        }
+    }
+})
+var setReactionData = function(channel, message, reaction, identify) {
+    if(identify == "games") {
+        reactForGamesHelp = {
+            channel: channel,
+            messageId: message.id,
+            reaction: reaction
+        }
+    } else if(identify == "general") {
+        reactForGeneralHelp = {
+            channel: channel,
+            messageId: message.id,
+            reaction: reaction
+        }
+    } else if(identify == "admin") {
+        reactForAdminHelp = {
+            channel: channel,
+            messageId: message.id,
+            reaction: reaction
+        }
+    }
+}   
+
 client.login("NDgwNTA3NjI2MzMzOTI5NDg0.Dlo33Q.MF2l0PMnvBePxSecbggTsTz9d2M");
 //CODES ReBeL
