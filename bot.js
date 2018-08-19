@@ -210,6 +210,147 @@ client.on("message", message => {
         }
     });
 
+ client.on("message", message => {
+      if (message.content === "%help") {
+       const embed = new Discord.RichEmbed() 
+           .setColor("#FF0000")
+           .setDescription(
+ ** __=bc__->**برودكاست
+  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  **__=server__->**معلومات عن السيرفر
+  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  **__=Bot__->**معلومات عن البوت
+  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  **__=member__->**حالة اعضاء السيرفر
+  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  **__=ping__->**سرعة اتصال البوت
+  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  **__=kick__->**لطرد شخص من السيرفر
+  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+   **__=ban__->**لحظر عضو من السيرفر 
+  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  **__=mute__->**لعمل ميوت لشخص
+  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  **__=unmute__->**لفك الميوت عن شخص
+  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  **__=stats__->**معلومات خفيفه عن البوت
+  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+     message.author.sendEmbed(embed)
+     
+     }
+     });
+client.on('message', message => {
+    if(message.content === "=bot") {
+        const embed = new Discord.RichEmbed()
+        .setColor("#00FFFF")
+        .setDescription(`**Servers**ðŸŒ **__${client.guilds.size}__**
+**Users**ðŸ‘¥ **__${client.users.size}__**
+**Channels**ðŸ“š **__${client.channels.size}__** `)
+               message.channel.sendEmbed(embed);
+           }
+});
+client.on('message', message => {
+    if(message.content == '=member') {
+    const embed = new Discord.RichEmbed()
+    .setDescription(`**Members infoðŸ”‹
+:green_heart: online:   ${message.guild.members.filter(m=>m.presence.status == 'online').size}
+:heart:dnd:       ${message.guild.members.filter(m=>m.presence.status == 'dnd').size}
+:yellow_heart: idle:      ${message.guild.members.filter(m=>m.presence.status == 'idle').size}   
+:black_heart: offline:   ${message.guild.members.filter(m=>m.presence.status == 'offline').size} 
+:blue_heart:   all:  ${message.guild.memberCount}**`)         
+         message.channel.send({embed});
 
+    }
+  });
+client.on('message', message => {
+    if(!message.channel.guild) return;
+if (message.content.startsWith('=ping')) {
+if(!message.channel.guild) return;
+var msg = `${Date.now() - message.createdTimestamp}`
+var api = `${Math.round(client.ping)}`
+if (message.author.bot) return;
+let embed = new Discord.RichEmbed()
+.setAuthor(message.author.username,message.author.avatarURL)
+.setColor('RANDOM')
+.addField('**Time Taken:**',msg + " ms :signal_strength: ")
+.addField('**WebSocket:**',api + " ms :signal_strength: ")
+message.channel.send({embed:embed});
+}
+});
+client.on('message', message => {
+    if (message.content.startsWith("=stats")) {
+    message.channel.send({
+        embed: new Discord.RichEmbed()
+            .setColor('RANDOM')
+            .setTitle('Stats Bot / Info ')
+            .addField('``Uptime``', timeCon(process.uptime()), true)
+            .addField('``Ping Is``' , `${Date.now() - message.createdTimestamp}` + '``Ms``', true)
+            .addField('``RAM Usage``', `${(process.memoryUsage().rss / 1048576).toFixed()}MB`, true)
+            .addField('``Guild Count``', client.guilds.size, true)
+            .addField('``Bot In channel``' , `${client.channels.size}` , true)
+            .addField('``Users rout``' ,`${client.users.size}` , true)
+            .addField('``Name Bot Or tag``' , `${client.user.tag}` , true)
+            .addField('``Bot Id``' , `${client.user.id}` , true)
+            .setFooter('SmiLeBoT / Team')
+    })
+}
+});
+
+
+function timeCon(time) {
+    let days = Math.floor(time % 31536000 / 86400)
+    let hours = Math.floor(time % 31536000 % 86400 / 3600)
+    let minutes = Math.floor(time % 31536000 % 86400 % 3600 / 60)
+    let seconds = Math.round(time % 31536000 % 86400 % 3600 % 60)
+    days = days > 9 ? days : '0' + days
+    hours = hours > 9 ? hours : '0' + hours
+    minutes = minutes > 9 ? minutes : '0' + minutes
+    seconds = seconds > 9 ? seconds : '0' + seconds
+    return `${days > 0 ? `${days}:` : ''}${(hours || days) > 0 ? `${hours}:` : ''}${minutes}:${seconds}`
+});
+client.on("message", (message) => {
+    if (message.content.startsWith("=ban")) {
+      if(!message.member.hasPermission('BAN_MEMBERS')) return message.reply(':warning: ماعندك الصلاحيات');
+        var member= message.mentions.members.first();
+        member.ban().then((member) => {
+            message.channel.send(member.displayName + " مع السلامه :wave: ");
+        }).catch(() => {
+            message.channel.send("Error -_-");
+        });
+    }
+});
+client.on("message", message => {
+    if (message.author.bot) return;
+    
+    let command = message.content.split(" ")[0];
+    
+    if (command === "=mute") {
+          if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** لا يوجد لديك برمشن 'Manage Roles' **").catch(console.error);
+    let user = message.mentions.users.first();
+    let modlog = client.channels.find('name', 'mute-log');
+    let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'Muted');
+    if (!muteRole) return message.reply("** لا يوجد رتبة الميوت 'Muted' **").catch(console.error);
+    if (message.mentions.users.size < 1) return message.reply('** يجب عليك منشنت شخص اولاً**').catch(console.error);
+    
+    const embed = new Discord.RichEmbed()
+      .setColor(0x00AE86)
+      .setTimestamp()
+      .addField('الأستعمال:', 'اسكت/احكي')
+      .addField('تم ميوت:', `${user.username}#${user.discriminator} (${user.id})`)
+      .addField('بواسطة:', `${message.author.username}#${message.author.discriminator}`)
+     
+     if (!message.guild.member(client.user).hasPermission('MANAGE_ROLES_OR_PERMISSIONS')) return message.reply('** لا يوجد لدي برمشن Manage Roles **').catch(console.error);
+   
+    if (message.guild.member(user).roles.has(muteRole.id)) {
+  return message.reply("**:white_check_mark: .. تم اعطاء العضو ميوت**").catch(console.error);
+  } else {
+      message.guild.member(user).addRole(muteRole).then(() => {
+  return message.reply("**:white_check_mark: .. تم اعطاء العضو ميوت كتابي**").catch(console.error);
+  });
+    }
+  
+  };
+  
+  });
 client.login("NDgwNTA3NjI2MzMzOTI5NDg0.Dlo33Q.MF2l0PMnvBePxSecbggTsTz9d2M");
 //CODES ReBeL
