@@ -250,16 +250,6 @@ client.on('message', message => {
      }
      });
 client.on('message', message => {
-    if(message.content === "=bot") {
-        const embed = new Discord.RichEmbed()
-        .setColor("#00FFFF")
-        .setDescription(`**Servers**ðŸŒ **__${client.guilds.size}__**
-**Users**ðŸ‘¥ **__${client.users.size}__**
-**Channels**ðŸ“š **__${client.channels.size}__** `)
-               message.channel.sendEmbed(embed);
-           }
-});
-client.on('message', message => {
     if(message.content == '=member') {
     const embed = new Discord.RichEmbed()
     .setDescription(`**Members infoðŸ”‹
