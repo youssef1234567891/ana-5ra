@@ -256,7 +256,6 @@ client.on('message', message => {
            .setFooter('By SHYBOY_05#0885 ')
            .setDescription(`**__أتمنى يعجبكم البوت يا أغلى ناس ❤️ 💛 💚 💙 💜 🖤__**`)
      message.author.sendEmbed(embed)
-     
      }
      });
 client.on('message', message => {
