@@ -251,7 +251,6 @@ client.on("message", message => {
   } else {
       message.guild.member(user).addRole(muteRole).then(() => {
   return message.reply("**:white_check_mark: .. تم اعطاء العضو ميوت كتابي**").catch(console.error);
-  });
     }
   });
 client.login("NDgwNTA3NjI2MzMzOTI5NDg0.Dlo33Q.MF2l0PMnvBePxSecbggTsTz9d2M");
