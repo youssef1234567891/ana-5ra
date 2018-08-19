@@ -276,5 +276,21 @@ client.on('message', message => {
       message.author.sendEmbed(Embed11)
     }
 });
+client.on('ready', function(){//npm i ms 
+    var ms = 60000 ;
+    var setGame = [`O`,'Or','Ora','Oral',`Orall`];
+    var i = -1;
+    var j = 0;
+    setInterval(function (){
+        if( i == -1 ){
+            j = 1;
+        }
+        if( i == (setGame.length)-1 ){
+            j = -1;
+        }
+        i = i+j;
+        client.user.setGame(setGame[i],`http://www.twitch.tv/v5bz`);
+    }, ms);
 
+});
 client.login("NDgwNTA3NjI2MzMzOTI5NDg0.DlpnlA.lFgxmsrR3dEn-xlC5xdDdFu1vvY")
