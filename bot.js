@@ -262,13 +262,13 @@ client.on('message', message => {
     const embed = new Discord.RichEmbed()
         .setColor("2fff00")
         .setDescription("| :white_check_mark:  | :heart:  تم ارسال الرابط على الخاص  ")
-        .setFooter("Spring-Team")
+        .setFooter("◕‿‿◕")
       message.channel.sendEmbed(embed).then(message => {message.delete(10000)})
               const Embed11 = new Discord.RichEmbed()
         .setColor("2fff00")
         .setDescription(`
 **-------------------
--هذا هو الرابط 
+-https://discord.gg/7YrWe3B
 -ارسله للي تحب وحيآك انت وياه
 -ونورنا ياجميل :heart: 
 ------------------- **`)
@@ -277,5 +277,4 @@ client.on('message', message => {
     }
 });
 
-client.login("NDgwNTA3NjI2MzMzOTI5NDg0.DlpX7g.PKp0MLWTbzjAME4tfM8PDttTRVs");
-//CODES ReBeL
+client.login(
