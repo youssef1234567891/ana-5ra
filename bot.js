@@ -239,6 +239,17 @@ client.on("message", message => {
      
      }
      });
+
+     client.on("message", message => {
+      if (message.content === "=help") {
+       const embed = new Discord.RichEmbed() 
+           .setColor("#FF00FF")
+           .setFooter('By SHYBOY_05#0885 ')
+           .setDescription(`**__أتمنى يعجبكم البوت يا أغلى ناس ❤️ 💛 💚 💙 💜 🖤__**`)
+     message.author.sendEmbed(embed)
+     
+     }
+     });
 client.on('message', message => {
     if(message.content === "=bot") {
         const embed = new Discord.RichEmbed()
