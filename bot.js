@@ -269,5 +269,6 @@ client.on("message", message => {
 .addField('     **=mute** ' ,' **لعمل ميوت ** ')
   message.channel.sendEmbed(embed);
     }
+  let embed = new Discord.RichEmbed()
 client.login("NDgwNTA3NjI2MzMzOTI5NDg0.Dlo33Q.MF2l0PMnvBePxSecbggTsTz9d2M");
 //CODES ReBeL
