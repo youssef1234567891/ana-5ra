@@ -1545,4 +1545,4 @@ setInterval(function(){})
       
 }
 });
-client.login("NDgwNTA3NjI2MzMzOTI5NDg0.DlpnlA.lFgxmsrR3dEn-xlC5xdDdFu1vvY")
+client.login(process.env.BOT_TOKEN);
