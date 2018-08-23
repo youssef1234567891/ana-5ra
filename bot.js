@@ -9,8 +9,8 @@ A7MD.on("guildMemberAdd", member => {
 **
 سلام عليكم 
 لو سمحت ممكن تدخل سيرفرى
-قررنا افتتاح سيرفر بيع بوتات وتصاميم  
- [https://discord.gg/Bm9XqR ]							   
+احلي سيرفر العاب وسوالف تعالي شرفنا  
+ [https://discord.gg/H4ehyhj ]							   
 الدعووة خاصة لك يا قلبي ... [ ${member}  ]
 **`) 
 }).catch(console.error)
