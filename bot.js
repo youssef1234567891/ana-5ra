@@ -1,12 +1,13 @@
- const Discord = require('discord.js');
-const epic = new Discord.Client();
+const Discord = require("discord.js");
+const client = new Discord.Client();
 
-epic.on('ready',async () => {
-  epic.channels.find(ch => ch.id === "487045322929995777" && ch.type === 'voice').join();
+client.on('message', message => {
+if (message.content === "test") {
+  var ms = 120000;
+      var interval = setInterval (function () {
+        message.channel.send("لا إله الا الله, سبحان الله, الحمدالله, الله اكبر")
+      }, ms); 
+    }
 });
 
-// طبعا عشان الكود يشتغل بكفاءة لازم يكون البوت مفتوح 24 ساعة
-// البوت بيخرج برا الروم اذا الخادم قفل
-// جميع الحقوق محفوظة لسيرفر كودز
-
-epic.login("NDg3OTYxNzgyNzMyODQ5MTYz.DnVjOg.XN68jq1mW4padPXDxtybv-wyMvY")
+client.login('NDg4MDI3NzkzNTQ0NzA4MDk3.DnW-tg.NL-xJk8Ys3t2SRO5g9OanTvXKps');
