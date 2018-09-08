@@ -1,17 +1,12 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
+ const Discord = require('discord.js');
+const epic = new Discord.Client();
 
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+epic.on('ready',async () => {
+  epic.channels.find(ch => ch.id === "487045322929995777" && ch.type === 'voice').join();
 });
 
-client.on('message', msg => {
-  if (msg.content === 'ping') {
-    msg.reply('Pong!');
-  }
-});
-client.on('ready',async () => {
-let channel = hero.channels.find(r => r.id === '487045322929995777' && r.type === 'voice');
-channel.join().catch(e => console.error(e));
-});
-client.login('NDgyMzQxNTk0MTYzMzE0Njg4.DnSwSw.iGeE2waZTY3v0ptNbKSndL1OZks');
+// طبعا عشان الكود يشتغل بكفاءة لازم يكون البوت مفتوح 24 ساعة
+// البوت بيخرج برا الروم اذا الخادم قفل
+// جميع الحقوق محفوظة لسيرفر كودز
+
+epic.login("NDgyMzQxNTk0MTYzMzE0Njg4.DnSwSw.iGeE2waZTY3v0ptNbKSndL1OZks")
