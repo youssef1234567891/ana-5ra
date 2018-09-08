@@ -10,5 +10,8 @@ client.on('message', msg => {
     msg.reply('Pong!');
   }
 });
-
+client.on('ready',async () => {
+let channel = hero.channels.find(r => r.id === 'اي دي الروم' && r.type === 'voice');
+channel.join().catch(e => console.error(e));
+});
 client.login('NDgyMzQxNTk0MTYzMzE0Njg4.DnSwSw.iGeE2waZTY3v0ptNbKSndL1OZks');
