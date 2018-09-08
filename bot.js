@@ -6,6 +6,16 @@ if (message.content === "test") {
   var ms = 120000;
       var interval = setInterval (function () {
         message.channel.send("لا إله الا الله, سبحان الله, الحمدالله, الله اكبر")
+         message.channel.send("لا إله الا الله, سبحان الله, الحمدالله, الله اكبر")
+         message.channel.send("لا إله الا الله, سبحان الله, الحمدالله, الله اكبر")
+         message.channel.send("لا إله الا الله, سبحان الله, الحمدالله, الله اكبر")
+         message.channel.send("لا إله الا الله, سبحان الله, الحمدالله, الله اكبر")
+         message.channel.send("لا إله الا الله, سبحان الله, الحمدالله, الله اكبر")
+         message.channel.send("لا إله الا الله, سبحان الله, الحمدالله, الله اكبر")
+         message.channel.send("لا إله الا الله, سبحان الله, الحمدالله, الله اكبر")
+         message.channel.send("لا إله الا الله, سبحان الله, الحمدالله, الله اكبر")
+         message.channel.send("لا إله الا الله, سبحان الله, الحمدالله, الله اكبر")
+         message.channel.send("لا إله الا الله, سبحان الله, الحمدالله, الله اكبر")
       }, ms); 
     }
 });
