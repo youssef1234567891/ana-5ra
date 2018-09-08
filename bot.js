@@ -9,4 +9,4 @@ epic.on('ready',async () => {
 // البوت بيخرج برا الروم اذا الخادم قفل
 // جميع الحقوق محفوظة لسيرفر كودز
 
-epic.login("NDgyMzQxNTk0MTYzMzE0Njg4.DnSwSw.iGeE2waZTY3v0ptNbKSndL1OZks")
+epic.login("NDg3OTYxNzgyNzMyODQ5MTYz.DnVjOg.XN68jq1mW4padPXDxtybv-wyMvY")
